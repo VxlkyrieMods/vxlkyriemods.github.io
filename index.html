@@ -1,0 +1,133 @@
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>E-Halcyon</title>
+
+  <link rel="stylesheet" href="/fonts.xz.style/serve/inter.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/static/css/clouds.css">
+
+  <meta name="description" content="A bypass for Google's SH1MMER mitigations, allowing you to downgrade and bypass enterprise enrollment on Chromebooks which have recieved the patch, created by Mercury Workshop">
+  <meta name="author" content="Mercury Workshop">
+  <meta name="keywords" content="E-Halcyon, Halcyon, RecoMod, SH1MMER, ChromeOS, Chrome OS, Chromebook, unenrollment, bypassing, exploit, unblocker">
+  <meta name="darkreader-lock">
+  <meta property="og:title" content="E-Halcyon">
+  <meta property="og:url" content="https://fog.gay">
+  <meta property="og:description" content="A bypass for Google's SH1MMER mitigations, allowing you to downgrade and bypass enterprise enrollment on Chromebooks which have recieved the patch.">
+  <meta property="og:image" content="https://fog.gay/static/img/mercury.png">
+  <meta property="og:type" content="website">
+
+  <script>
+    window.onload = () => {
+      let script = document.createElement("script");
+      script.src = "/static/js/clouds.js";
+      script.onload = () => {generate(); window.dispatchEvent(new Event("scroll"))}
+      document.head.append(script);
+    }
+  </script>
+<style id="custom-cursor" type="text/css">body button, body [type='button'], body input[type='reset'], body input[type='submit'], body [role="button"], ::-webkit-search-cancel-button, ::-webkit-search-decoration, ::-webkit-scrollbar-button, ::-webkit-file-upload-button, [role^=button], .cc_pointer, [type="search"]::-webkit-search-cancel-button, a, select, [type="search"]::-webkit-search-decoration, .paper-button, .ytp-progress-bar-container, input[type=submit], :link, :visited, a > *, img,  ::-webkit-scrollbar-button, .ogdlpmhglpejoiomcodnpjnfgcpmgale_pointer, ::-webkit-file-upload-button, .ytp-volume-panel, #myogdlpmhglpejoiomcodnpjnfgcpmgale .icon, body .custom-cursor-on-hover {cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAuZJREFUOE+dlO9LU2EUx793021h7jrv2JbbmlZk6bTmb1EIfwSFkUa9EzOFQAUTnFYoRllBBb3vXZlB9qYX/QPWq6g0zR+LTdLNq3M/0nQbTZq7N57ZFXUTtfPyPOf5POc533MOhWijAPCHVKoFioeKAyZdXk82gIg/RvwWFwmKshSVevXz1+E4uVwuZmdnQ5XlFUsLHrdmNxg5jwnUqTX8pM0KuVyOmZkZlBYV806PW7QdqFIk8zzPIxzmG5f8y8/3A+ScHrdYAOr1eiNDJ42PjI9FXHd77qCv78U7O8tW7zXDLUCdTqdV0oq5kYl1YE9XN17197+1z7GX9woERVGQSqUIr60hzHFgGAajE+P/BywpLILT40bWyQy0trXBZDKhvq4OFps1NtCgN7SLwCVwEP12sI6n20URgNkZmei4dRN5efm4UlMDy5QtGpiamiqjEw6yoCglz/OLY5MTSq1aw5PXicoOhwPnKs/i+5QNJUXFaG27AZMpB1dra/FpeCgamKJS8z8cdshkMgSDQTByGskMQ4AUAQpG2oPUMZZtEWUzUAgWURR+LS+Dpun9A4UvN7W0KJtamiOA5X8wktG+v0wABr3BfKGq6rwxy1ghQIXUyKTsSxThYppe3yOn6d7R8fXe2iswEAjgYe/94MDA6zd2lm3YqHKa3vBAoUjqHv42SuaTEgTYLcP0o8cQ8PsanV7vjrNMgGRNRR6bnp5G/mkTFn0rIJdvd3ehoKAQF6uqQLrjVKYRvhVfs32efRZrOUR2Xmb6Cf7jl89ITEwEx3Hw+/0Rxf0+H6QyGcRiMVwuF86UlIao+LgjEonEY7FY/uy4bVJUmnvtHWZzWXlZQk5u7paavh8chHPeiepLNTCkaENKiYax/rT6haDYnUqU1+q85s5OZX3DtQ0gqeuTR4/9w0NDob7+l8kZx9NDTLx6b8A03WF3aC3EhMPhzRmKKFDXQ+A+xFOiKalUuioJHlBtzvAvYcKvJCwuMYYAAAAASUVORK5CYII=") 7 0, pointer !important;} html,body,body select,body .custom-cursor-default-hover {cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAoRJREFUOE+l0j9oGnEUB/D38w94emaISxehm9BBwpXOdROEFociFDoVUahKhkqqEFIxi0RKlgYtSiJGpLRBKBQdOhhIUmur3CEipAoNGFEbtTqYer3UK79DQWhTTfwtP/gd78P33XsIIfRDpVLdstvtTY/HM4Q5DwIADgB4jUajOT4+/janB0gul3OZTEZiMBiatVrtxtwgSZJco9EQKxQKXqFQsARB3G232zmc+jo4wmC9XpeQJDlkGAaZTKbTk5OTBxzHfb4WqFQqL+r1uggn5HkecrmcyOVy0a1W636hUDi9KiokbDQaAjgurlaryGg0fq1Wq8/Pzs7eXAUdtyzGLY8K8eSHiURCHIvFviSTyVWWZT/Mik4mxDU4pQDi++DgQBwOhw+j0egzAPg4CzqZEGNjcNw+ymazyOfzHabT6Wiv1wtPQy9teZRUSLuzsyNJJpN5hmEclUol8z8Ug79GQ/mr5VGhkJqmafHm5uan3d3dFQA4vAwd/0NhsSeHgpFsNgulUgm/i6RSKRwdHaFgMPgaAB5OA/HaCAlrtRpaXFzkCYIAm82GAoFARyqV9sYAQugdy7JPZwH5/f193maz5a1W602z2awKhUKSvb29rWKxuNrtdrvTBoK/Cy03m01Jp9MBtVrNAIAeAEL5fP4eRVH82tqaaH193QEAL2cClUol1263xRRFoVQqJVer1T8B4D1N04alpSXe7XbDxsbGk+Fw+GomUCaTVQaDgUyr1VKFQuH7aF3wIHJ+v/+20+m8cDgcku3t7dT5+blhGor37J9nYWEh4/V671gsFlheXv4dj8ff9vv9R9cGdTodWS6XX/T7/ccEQazo9fpAJBIZTAP/AMhqMSSa8q6rAAAAAElFTkSuQmCC") 0 0, auto !important;}</style><script src="/static/js/clouds.js"></script></head>
+
+<body>
+  <div id="navbar">
+    <a id="title" href="/">
+      <img src="/static/img/mercury.png" width="48px" height="48px" alt="The Mercury Workshop logo">
+      <h1>E-Halcyon</h1>
+    </a>
+    <div id="links">
+      <a href="#instructions.html">Instructions</a>
+      <a href="#faq.html">FAQ</a>
+      <a href="/github.com/mercuryworkshop/recomod.html">GitHub</a>
+    </div>
+  </div>
+  <div id="cloud_viewport">
+    <div id="cloud_world" style="transform: translateZ(0px) rotateX(-0.473856deg) rotateY(1.64212deg);"><div class="cloud_base" style="transform: translateX(63.9428px) translateY(211.886px) translateZ(57.5199px);"><div class="cloud_layer" style="transform: translateX(149.62px) translateY(-134.627px) translateZ(213.131px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(108.176deg) scale(1.28355);"></div><div class="cloud_layer" style="transform: translateX(38.2661px) translateY(117.692px) translateZ(-187.492px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(302.622deg) scale(1.70431);"></div><div class="cloud_layer" style="transform: translateX(214.56px) translateY(24.7761px) translateZ(236.799px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(18.0989deg) scale(1.75437);"></div><div class="cloud_layer" style="transform: translateX(252.768px) translateY(137.02px) translateZ(-159.468px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(-103.418deg) scale(1.24791);"></div><div class="cloud_layer" style="transform: translateX(141.484px) translateY(-103.457px) translateZ(-220.194px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(188.959deg) scale(1.11203);"></div><div class="cloud_layer" style="transform: translateX(-134.435px) translateY(97.5743px) translateZ(-136.3px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(275.217deg) scale(1.24273);"></div><div class="cloud_layer" style="transform: translateX(37.3745px) translateY(-50.6375px) translateZ(-189.946px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(278.314deg) scale(1.04668);"></div><div class="cloud_layer" style="transform: translateX(-196.222px) translateY(-105.83px) translateZ(-207.075px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(26.8758deg) scale(1.6891);"></div><div class="cloud_layer" style="transform: translateX(-240.429px) translateY(-168.517px) translateZ(-111.845px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(109.689deg) scale(1.89256);"></div><div class="cloud_layer" style="transform: translateX(149.786px) translateY(-48.0435px) translateZ(-240.721px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(351.352deg) scale(1.17448);"></div><div class="cloud_layer" style="transform: translateX(-207.344px) translateY(-155.573px) translateZ(165.301px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(108.291deg) scale(1.39957);"></div><div class="cloud_layer" style="transform: translateX(-88.8937px) translateY(-96.0922px) translateZ(-73.7956px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(75.3267deg) scale(1.24375);"></div></div><div class="cloud_base" style="transform: translateX(267.562px) translateY(218.43px) translateZ(58.8355px);"><div class="cloud_layer" style="transform: translateX(-91.7153px) translateY(156.923px) translateZ(98.6521px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(215.735deg) scale(1.28967);"></div><div class="cloud_layer" style="transform: translateX(-92.6419px) translateY(57.8626px) translateZ(-139.102px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(233.163deg) scale(1.47846);"></div><div class="cloud_layer" style="transform: translateX(-227.309px) translateY(-40.9708px) translateZ(-99.4929px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(105.694deg) scale(1.8834);"></div><div class="cloud_layer" style="transform: translateX(60.0126px) translateY(31.683px) translateZ(173.349px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(127.441deg) scale(1.50024);"></div><div class="cloud_layer" style="transform: translateX(-119.893px) translateY(-132.687px) translateZ(-156.654px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(162.319deg) scale(1.57169);"></div><div class="cloud_layer" style="transform: translateX(145.655px) translateY(139.282px) translateZ(148.039px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(218.743deg) scale(1.41986);"></div><div class="cloud_layer" style="transform: translateX(-16.1867px) translateY(85.0582px) translateZ(-99.5643px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(-46.7749deg) scale(1.69192);"></div><div class="cloud_layer" style="transform: translateX(-92.4364px) translateY(32.3143px) translateZ(-93.9755px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(100.938deg) scale(1.9738);"></div><div class="cloud_layer" style="transform: translateX(39.542px) translateY(-112.054px) translateZ(-219.187px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(218.558deg) scale(1.14827);"></div><div class="cloud_layer" style="transform: translateX(-47.5277px) translateY(-84.7779px) translateZ(23.3376px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(247.86deg) scale(1.55559);"></div><div class="cloud_layer" style="transform: translateX(224.297px) translateY(12.8856px) translateZ(245.507px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(116.958deg) scale(1.73638);"></div><div class="cloud_layer" style="transform: translateX(-24.1993px) translateY(120.601px) translateZ(248.638px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(175.238deg) scale(1.71245);"></div><div class="cloud_layer" style="transform: translateX(-226.28px) translateY(-115.823px) translateZ(216.299px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(104.432deg) scale(1.15691);"></div><div class="cloud_layer" style="transform: translateX(21.9615px) translateY(113.914px) translateZ(-231.559px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(17.2514deg) scale(1.36742);"></div></div><div class="cloud_base" style="transform: translateX(8.83424px) translateY(149.734px) translateZ(136.693px);"><div class="cloud_layer" style="transform: translateX(158.821px) translateY(-13.4415px) translateZ(-16.5407px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(246.428deg) scale(1.29767);"></div><div class="cloud_layer" style="transform: translateX(-141.499px) translateY(-132.592px) translateZ(-120.426px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(124.501deg) scale(1.77251);"></div><div class="cloud_layer" style="transform: translateX(181.42px) translateY(-134.352px) translateZ(219.65px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(93.5656deg) scale(1.8785);"></div><div class="cloud_layer" style="transform: translateX(212.48px) translateY(95.1116px) translateZ(16.0187px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(139.659deg) scale(1.46103);"></div><div class="cloud_layer" style="transform: translateX(-77.8893px) translateY(136.128px) translateZ(159.17px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(123.151deg) scale(1.44302);"></div><div class="cloud_layer" style="transform: translateX(-29.9434px) translateY(14.5574px) translateZ(-97.0133px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(53.2414deg) scale(1.7121);"></div><div class="cloud_layer" style="transform: translateX(-163.107px) translateY(-164.954px) translateZ(222.966px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(359.483deg) scale(1.18096);"></div><div class="cloud_layer" style="transform: translateX(-25.3586px) translateY(115.652px) translateZ(-22.1991px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(121.163deg) scale(1.1183);"></div><div class="cloud_layer" style="transform: translateX(-119.584px) translateY(40.8283px) translateZ(-174.377px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(62.5954deg) scale(1.6102);"></div><div class="cloud_layer" style="transform: translateX(-250.283px) translateY(101.242px) translateZ(249.07px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(56.6447deg) scale(1.54593);"></div></div><div class="cloud_base" style="transform: translateX(249.559px) translateY(274.537px) translateZ(11.1644px);"><div class="cloud_layer" style="transform: translateX(-209.157px) translateY(-43.8325px) translateZ(51.1855px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(359.751deg) scale(1.60876);"></div><div class="cloud_layer" style="transform: translateX(192.33px) translateY(84.5197px) translateZ(252.703px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(127.662deg) scale(1.5934);"></div><div class="cloud_layer" style="transform: translateX(-86.178px) translateY(57.7284px) translateZ(-213.604px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(305.915deg) scale(1.83705);"></div><div class="cloud_layer" style="transform: translateX(139.374px) translateY(-160.243px) translateZ(24.5803px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(-3.0142deg) scale(1.10106);"></div><div class="cloud_layer" style="transform: translateX(69.4162px) translateY(-62.0748px) translateZ(32.6035px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(53.7631deg) scale(1.27695);"></div><div class="cloud_layer" style="transform: translateX(21.6488px) translateY(-97.1448px) translateZ(-144.471px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(131.833deg) scale(1.5909);"></div><div class="cloud_layer" style="transform: translateX(216.969px) translateY(87.7727px) translateZ(78.7491px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(37.1154deg) scale(1.02574);"></div><div class="cloud_layer" style="transform: translateX(-137.859px) translateY(169.49px) translateZ(141.18px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(62.1275deg) scale(1.09978);"></div><div class="cloud_layer" style="transform: translateX(238.664px) translateY(55.0789px) translateZ(27.699px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(176.102deg) scale(1.99021);"></div><div class="cloud_layer" style="transform: translateX(217.177px) translateY(-56.6399px) translateZ(-70.1458px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(88.7129deg) scale(1.3922);"></div><div class="cloud_layer" style="transform: translateX(50.261px) translateY(-79.5423px) translateZ(-121.168px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(203.293deg) scale(1.90912);"></div><div class="cloud_layer" style="transform: translateX(249.734px) translateY(-56.9149px) translateZ(-88.9765px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(313.69deg) scale(1.03279);"></div><div class="cloud_layer" style="transform: translateX(-32.6395px) translateY(75.595px) translateZ(-106.558px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(303.875deg) scale(1.44532);"></div></div><div class="cloud_base" style="transform: translateX(100.737px) translateY(78.1058px) translateZ(170.08px);"><div class="cloud_layer" style="transform: translateX(-185.912px) translateY(55.0586px) translateZ(-220.908px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(251.456deg) scale(1.63589);"></div><div class="cloud_layer" style="transform: translateX(98.0166px) translateY(38.3155px) translateZ(-186.771px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(-41.7028deg) scale(1.79957);"></div><div class="cloud_layer" style="transform: translateX(-216.545px) translateY(-40.9559px) translateZ(-19.0126px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(114.478deg) scale(1.6916);"></div><div class="cloud_layer" style="transform: translateX(77.3328px) translateY(-29.2843px) translateZ(108.357px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(238.977deg) scale(1.81545);"></div><div class="cloud_layer" style="transform: translateX(-92.7151px) translateY(145.18px) translateZ(-79.005px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(323.554deg) scale(1.5486);"></div><div class="cloud_layer" style="transform: translateX(15.9842px) translateY(112.335px) translateZ(-45.1468px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(-30.5138deg) scale(1.34285);"></div><div class="cloud_layer" style="transform: translateX(-223.019px) translateY(110.269px) translateZ(-16.6671px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(299.851deg) scale(1.10769);"></div><div class="cloud_layer" style="transform: translateX(-131.488px) translateY(-5.29581px) translateZ(163.444px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(4.3549deg) scale(1.65438);"></div><div class="cloud_layer" style="transform: translateX(31.3352px) translateY(-112.572px) translateZ(-145.704px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(91.1519deg) scale(1.76297);"></div><div class="cloud_layer" style="transform: translateX(-129.934px) translateY(-129.772px) translateZ(-254.987px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(150.739deg) scale(1.02922);"></div><div class="cloud_layer" style="transform: translateX(239.74px) translateY(73.9053px) translateZ(-207.897px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(225.781deg) scale(1.87882);"></div><div class="cloud_layer" style="transform: translateX(115.057px) translateY(94.0701px) translateZ(-88.0323px) rotateY(-1.64212deg) rotateX(0.473856deg) rotateZ(-40.7822deg) scale(1.08489);"></div></div></div>
+  </div>
+  <div id="content">
+    <div id="content_title" class="description">
+      <h1>Defog Your Chromebook</h1>
+      <p>E-Halcyon is a bypass for "The Fog," which is Google's mitigation for the unenrollment and downgrading of Chrome OS devices. It allows you to downgrade and bypass enterprise enrollment on Chromebooks, even if it's received the update that patched downgrading and enrollment escape.</p>
+      <p>E-Halcyon is developed by Mercury Workshop, the same developers behind SH1MMER.</p>
+      <a href="#instructions.html" id="mainbutton">
+        <!-- todo: fix this mess of a button-->
+        <button2>Defog Me</button2>
+      </a>
+    </div>
+
+    <div id="spacer" style="height: 170vh;">
+      <script>document.getElementById("spacer").style.height = "170vh"</script>
+    </div>
+
+    <div class="description" id="instructions">
+      <h1>Instructions:</h1>
+
+      <!-- note: please just enable word wrap on your editor instead of screwing up the indentation for everyone else -->
+      <!-- coolelectronics, you better disable your auto-formatter -->
+      <p>First of all, you'll need a linux PC or VM. WSL is not guaranteed to work</p>
+      <p>Now, you'll need to boot into <a href="/sh1mmer.me.html">SH1MMER</a>, and press the Un-Enroll option. It won't truly unenroll you if you've received the 112 update patching unenrollment and downgrading, but it is still a necessary step for the rest of this. If you've never used SH1MMER before or don't have an image lying around, make sure to follow all the instructions on <a href="/sh1mmer.me.html">sh1mmer.me</a> for unenrollment before proceeding with the rest of the tutorial here</p>
+      <p>Next, you need a version 107 recovery image corresponding to your board, which you can pick up from <a href="/chrome100.dev.html">chrome100.dev</a>. Once you've downloaded the right image for your board and have confirmed it's for version 107, unzip it and save it to a safe place. Now open up a terminal and type in the following commands (make sure to replace /path/to/recovery/image.bin with the actual path)</p>
+
+      <!--have to do this or else you get weird indentation on the rendered page-->
+      <pre>git clone https://github.com/MercuryWorkshop/RecoMod
+cd RecoMod
+chmod +x recomod.sh
+sudo ./recomod.sh -i /path/to/recovery/image.bin --halcyon --rw_legacy</pre>
+
+      <p>The script will modify the image in place, and it can now be flashed with a standard recovery tool onto a USB of your choice.</p>
+      <p>Enable developer mode and get to the dev mode block screen similarly to how you would with SH1MMER, then plug in the USB. The recovery screen will show up, and at this point you need to start spamming the E key on your keyboard. It will begin a 5 minute wait sequence, and near the end of the 5 minutes start spamming E again. You will only have to wait 5 minutes once, subsequent boots will have the 5 minute wait omitted</p>
+      <p>The boot splash will show, and you will enter a special menu. Use arrow keys to navigate the cursor down to "activate halcyon environment" and press enter. Then navigate down to "Install halcyon semi-tethered" and wait for it to finish. Once it's finished, go back to "activate halcyon environment" and press "Boot halcyon semi-tethered". and you will be booted into a downgraded and unenrolled ChromeOS environment.</p>
+    </div>
+
+    <div style="height:10vh">
+    </div>
+    <div class="description" id="FAQ">
+      <h1>FAQ:</h1>
+      <ul>
+        <!-- using h2 here for some actual hierarchy and no ugly css -->
+        <li>
+          <h2>How does this work?</h2>
+          <p>See the <a href="/coolelectronics.me/blog/breaking-cros-5.html">writeup</a> for more information</p>
+        </li>
+        <li>
+          <h2>Can the admins see that I'm doing this?</h2>
+          <p>No.</p>
+        </li>
+        <li>
+          <h2>Why don't my history/cookies/etc save after a reboot?</h2>
+          <p>Unfixable restriction of cryptohome. See the <a href="/coolelectronics.me/blog/breaking-cros-5.html">writeup</a> for more information</p>
+        </li>
+        <li>
+          <h2>Why is my Chromebook "Missing or damaged?"</h2>
+          <p>After installing E-Halcyon, you won't be able to boot Chrome OS normally. You'll have to keep the usb around to jumpstart the booting process</p>
+        </li>
+        <li>
+          <h2>Where do I report bugs?</h2>
+          <p>The RecoMod <a href="/github.com/mercuryworkshop/recomod.html">GitHub</a></p>
+        </li>
+        <li>
+          <h2>Why does it say "E mode not activated" when I try to boot halcyon?</h2>
+          <p>You spammed the E key when starting at the wrong time, or not at all</p>
+        </li>
+      </ul>
+    </div>
+    <div id="credits" class="description">
+      <h1>Credits:</h1>
+      <ul style="width: 100%">
+        <li>CoolElectronics - RecoMod, working switch_root, and everything else</li>
+        <li>OlyB - Insight and contributions to the RecoMod script</li>
+        <li>vk6 - Created this website</li>
+      </ul>
+    </div>
+    <div id="footer">
+      <img src="/static/img/mercury.png" width="48px" height="48px" alt="The Mercury Workshop logo">
+      <div style="flex-grow: 1">
+        <p><b>E-Halcyon / RecoMod</b></p>
+        <a id="copyright_text" href="/mercurywork.shop.html">Copyright (c) 2023 Mercury Workshop</a><br>
+      </div>
+
+      <div id="fedi_plug"><a href="/akkoma.mercurywork.shop.html">fediverse server</a></div>
+    </div>
+  </div>
+
+
+
+</body><style type="text/css" id="custom-page-zoom-css"></style></html>
